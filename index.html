@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>vdom</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script src="./h.js"></script>
+  <script src="./patch.js"></script>
+  <script>
+    const container = document.getElementById('container');
+
+    const oldNode = h('div', null, h('span', null, '111'), h('span', null, '223'));
+    patch(container, oldNode);
+
+    const newNode = h('div', null, h('div', null, '3333'), h('div', null, '221'));
+    patch(container, newNode, oldNode);
+  </script>
+</body>
+</html>
